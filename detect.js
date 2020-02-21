@@ -27,7 +27,7 @@ class App extends React.Component {
   showDetections = predictions => {
     const ctx = this.canvasRef.current.getContext("2d");
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    const font = "24px helvetica";
+    const font = "20px menlo";
     ctx.font = font;
     ctx.textBaseline = "top";
 
@@ -37,11 +37,11 @@ class App extends React.Component {
       const width = prediction.bbox[2];
       const height = prediction.bbox[3];
       // Draw the bounding box.
-      ctx.strokeStyle = "#2fff00";
+      ctx.strokeStyle = "#79BDFF";
       ctx.lineWidth = 1;
       ctx.strokeRect(x, y, width, height);
       // Draw the label background.
-      ctx.fillStyle = "#2fff00";
+      ctx.fillStyle = "#79BDFF";
       const textWidth = ctx.measureText(prediction.class).width;
       const textHeight = parseInt(font, 10);
       // draw top left rectangle
@@ -105,8 +105,7 @@ class App extends React.Component {
           muted
           ref={this.videoRef}
           width="720"
-          height="600"
-        />
+          height="600"/>
         <canvas style={this.styles} ref={this.canvasRef} width="720" height="650" />
       </div>
     );
